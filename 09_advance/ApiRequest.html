@@ -5,17 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #container{
+        margin-top:2%;
+        margin-left:33%;
+        height: 708px;
+        width: 600px;
+        border:2px solid white;
+        border-radius: 10px;
+    }
+    .img{
+        display: block;
+        margin-top:8%;
+        margin-left: 38%;
+        width:25%;
+    }
+    img{
+        border-radius: 50%;
+    }
+</style>
 <body style="background-color: #212121;">
-    
+    <div id="container">
+
+    </div>
 </body>
 <script>
+    const ele=document.querySelector("#container")
     const requestUrl='https://api.github.com/users/saood-id'
    const xhr= new XMLHttpRequest()
    xhr.open('GET',requestUrl)
    xhr.onreadystatechange = function(){
        console.log(xhr.readyState);
        if(xhr.readyState===4){
-        console.log(this.responseText );
+        const data=JSON.parse(this.responseText)
+        const IMG=document.createElement("img");
+        IMG.src = data.avatar_url
+        IMG.innerHTML ='hello'
+        ele.appendChild(IMG)
+        IMG.className="img"
+        console.log(data.followers); //if we save response text in a var it will be saved as string so we aill have to conver it into NUMBER using NUMBER.parseInt
        }
    }
    xhr.send()
