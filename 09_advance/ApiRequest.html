@@ -6,13 +6,23 @@
     <title>Document</title>
 </head>
 <style>
+    body{
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    }
     #container{
-        margin-top:2%;
+        margin-top:4px;
         margin-left:33%;
+        padding-top: 2px;
         height: 708px;
         width: 600px;
-        border:2px solid white;
         border-radius: 10px;
+        background-color: #4158D0;
+        background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+        box-shadow: 3px 3px 30px black;
+        
+       
+
     }
     .img{
         display: block;
@@ -22,6 +32,12 @@
     }
     img{
         border-radius: 50%;
+    }
+    .followers{
+        display: flex;
+        justify-content: center;
+        color: beige;
+        font-family:sans-serif;
     }
 </style>
 <body style="background-color: #212121;">
@@ -43,6 +59,12 @@
         IMG.innerHTML ='hello'
         ele.appendChild(IMG)
         IMG.className="img"
+        const div=document.createElement("div")
+        div.className="followers"
+        ele.appendChild(div)
+        const h1=document.createElement("h1");
+        h1.innerHTML=`followers: ${data.followers}`
+        document.querySelector(".followers").appendChild(h1);
         console.log(data.followers); //if we save response text in a var it will be saved as string so we aill have to conver it into NUMBER using NUMBER.parseInt
        }
    }
